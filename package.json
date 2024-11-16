@@ -10,8 +10,14 @@
     "react-scripts": "^5.0.1"
   },
   "devDependencies": {
+    "@hsunpei/eslint-config": "^0.1.2",
+    "@hsunpei/prettier-config": "^1.0.1",
+    "@hsunpei/typescript-config": "^1.0.7",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
+    "eslint": "^8.44.0",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.8",
     "typescript": "5.6.3"
   },
   "scripts": {
@@ -19,6 +25,14 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": "./configs/.eslintrc.js"
+  },
+  "volta": {
+    "node": "18.17.0",
+    "yarn": "3.2.4"
   },
   "browserslist": [
     ">0.2%",
