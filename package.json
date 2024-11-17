@@ -21,10 +21,12 @@
     "typescript": "5.6.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "DISABLE_ESLINT_PLUGIN=true react-scripts start",
+    "build": "DISABLE_ESLINT_PLUGIN=true react-scripts build",
+    "test": "DISABLE_ESLINT_PLUGIN=true react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "lint:es": "eslint --ignore-path .gitignore \"./**/*.{ts,tsx}\"",
+    "lint:fix": "yarn lint:es --fix"
   },
   "eslintConfig": {
     "root": true,

@@ -4,9 +4,11 @@ export default function App() {
   return (
     <div className="App">
       <div className="relative h-screen">
-        <div className="absolute bottom-10 right-5 max-w-lg text-left">
-          <h1 className="text-6xl text-blue-700 sm:text-9xl">Join the Pride</h1>
-          <p className="mt-8 text-xl font-medium text-gray-950 sm:text-2xl">
+        <div className="absolute bottom-16 right-5 max-w-xl text-left">
+          <h1 className="red-hat-display-black text-6xl text-blue-700 md:text-9xl">
+            Join the Pride
+          </h1>
+          <p className="mt-6 font-sans text-xl font-medium text-slate-500 md:text-2xl">
             Join us in celebrating love, diversity, and equality at this year&#39;s Pride event
           </p>
         </div>
