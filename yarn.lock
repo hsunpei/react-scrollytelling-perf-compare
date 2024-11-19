@@ -2400,6 +2400,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-scrollytelling/layout@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "@react-scrollytelling/layout@npm:0.1.0"
+  peerDependencies:
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: c893459d57b2a0de4f9fa450a80cd1f9a166935baf70953a606589cbca6f91735f4b3815980f3de42a38b38daa769aa3a171a72af9686d4c7d9ad089a4205592
+  languageName: node
+  linkType: hard
+
 "@rollup/plugin-babel@npm:^5.2.0":
   version: 5.3.1
   resolution: "@rollup/plugin-babel@npm:5.3.1"
@@ -12305,6 +12315,7 @@ __metadata:
     "@hsunpei/eslint-config": ^0.1.3
     "@hsunpei/prettier-config": ^1.0.1
     "@hsunpei/typescript-config": ^1.0.7
+    "@react-scrollytelling/layout": ^0.1.0
     "@types/react": ^18.3.12
     "@types/react-dom": ^18.3.1
     eslint: ^8.44.0
