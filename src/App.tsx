@@ -2,6 +2,8 @@ import './styles.css';
 
 import { StickyContainerTailwind } from '@react-scrollytelling/layout';
 
+import { BackgroundGraphics } from './BackgroundGraphics';
+
 export default function App() {
   return (
     <div className="App">
@@ -20,7 +22,7 @@ export default function App() {
         }
       >
         {/* Put sticky background here */}
-        <div>Background</div>
+        <BackgroundGraphics />
       </StickyContainerTailwind>
       <div className="h-screen">
         <h1>React + TypeScript + TailwindCSS</h1>
