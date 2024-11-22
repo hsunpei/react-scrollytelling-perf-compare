@@ -17,6 +17,13 @@
   font-style: normal;
 }
 
+/* Apply transform-origin: center to SVG elements */
+.fill-box {
+  * {
+    transform-box: fill-box;
+  }
+}
+
 @layer base {
   html, body {
     font-family: "Inter", sans-serif;
