@@ -1,6 +1,6 @@
 export const BgTopRight = () => {
   return (
-    <g id="bg_right" transform="translate(350, 100) rotate(8) scale(1.1)">
+    <g id="bg_right" transform="translate(350, 50) rotate(8) scale(1.1)">
       <path
         id="Weird Shape"
         fillRule="evenodd"

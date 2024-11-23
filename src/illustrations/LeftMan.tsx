@@ -1,6 +1,6 @@
 export const LeftMan = () => {
   return (
-    <g id="m_left" transform="translate(50, 108) rotate(-13.57) scale(1.85)">
+    <g id="m_left" transform="translate(50, 118) rotate(-13.57) scale(1.85)">
       <g id="Head/Front">
         <g id="Head">
           <path
