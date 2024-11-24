@@ -1,6 +1,11 @@
+import { animated } from '@react-spring/web';
+
+const START = 'translate(350, 120) rotate(7) scale(1.47)';
+const END = 'translate(120, 30) rotate(0) scale(1)';
+
 export const RightMan = () => {
   return (
-    <g id="m_right" transform="translate(350, 120) rotate(7) scale(1.47)">
+    <animated.g id="m_right" transform={END}>
       <g id="Head/Front">
         <g id="Head">
           <path
@@ -105,6 +110,6 @@ export const RightMan = () => {
           fillOpacity="0.1"
         />
       </g>
-    </g>
+    </animated.g>
   );
 };

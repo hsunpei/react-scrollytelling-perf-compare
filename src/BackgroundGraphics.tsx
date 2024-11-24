@@ -1,3 +1,5 @@
+import { SpringValue } from '@react-spring/web';
+
 import { BgOrange } from './illustrations/BgOrange';
 import { BgPurple } from './illustrations/BgPurple';
 import { BgTopRight } from './illustrations/BgTopRight';
@@ -7,7 +9,11 @@ import { LeftWoman } from './illustrations/LeftWoman';
 import { RightMan } from './illustrations/RightMan';
 import { RightWoman } from './illustrations/RightWoman';
 
-export const BackgroundGraphics = () => {
+interface BackgroundGraphicsProps {
+  scrolledRatioSpring: SpringValue<number>;
+}
+
+export const BackgroundGraphics = ({ scrolledRatioSpring }: BackgroundGraphicsProps) => {
   return (
     <svg
       width="1234"
@@ -21,7 +27,7 @@ export const BackgroundGraphics = () => {
       <BgTopYellow />
       <BgOrange />
       <BgPurple />
-      <LeftMan />
+      <LeftMan scrolledRatioSpring={scrolledRatioSpring} />
       <RightMan />
       <LeftWoman />
       <RightWoman />
