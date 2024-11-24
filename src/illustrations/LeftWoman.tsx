@@ -1,6 +1,23 @@
-export const LeftWoman = () => {
+import { animated, SpringValue } from '@react-spring/web';
+import { interpolateTransformSvg } from 'd3-interpolate';
+
+const INTERPOLATOR = interpolateTransformSvg(
+  'translate(80, 818) rotate(-30) scale(0.7)',
+  'translate(0, 180) rotate(-5) scale(1)'
+);
+
+export const LeftWoman = ({
+  scrolledRatioSpring,
+}: {
+  scrolledRatioSpring: SpringValue<number>;
+}) => {
   return (
-    <g id="w_left" transform="translate(80, 818) rotate(-3.57) scale(0.7)">
+    <animated.g
+      id="w_left"
+      transform={scrolledRatioSpring.to((val) => {
+        return INTERPOLATOR(val);
+      })}
+    >
       <g id="Group">
         <g id="Illustration">
           <g id="Group 2">
@@ -94,6 +111,6 @@ export const LeftWoman = () => {
           </g>
         </g>
       </g>
-    </g>
+    </animated.g>
   );
 };

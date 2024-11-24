@@ -1,21 +1,17 @@
 import { animated, SpringValue } from '@react-spring/web';
 import { interpolateTransformSvg } from 'd3-interpolate';
 
-const INTERPOLATER = interpolateTransformSvg(
+const INTERPOLATOR = interpolateTransformSvg(
   'translate(50, 118) rotate(-13.57) scale(1.85)',
-  'translate(20, 20) rotate(0) scale(1)'
+  'translate(0, -10) rotate(0) scale(0.8)'
 );
 
-interface LeftManProps {
-  scrolledRatioSpring: SpringValue<number>;
-}
-
-export const LeftMan = ({ scrolledRatioSpring }: LeftManProps) => {
+export const LeftMan = ({ scrolledRatioSpring }: { scrolledRatioSpring: SpringValue<number> }) => {
   return (
     <animated.g
       id="m_left"
       transform={scrolledRatioSpring.to((val) => {
-        return INTERPOLATER(val);
+        return INTERPOLATOR(val);
       })}
     >
       <g id="Head/Front">

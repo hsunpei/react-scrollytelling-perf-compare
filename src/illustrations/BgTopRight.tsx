@@ -1,6 +1,23 @@
-export const BgTopRight = () => {
+import { animated, SpringValue } from '@react-spring/web';
+import { interpolateTransformSvg } from 'd3-interpolate';
+
+const INTERPOLATOR = interpolateTransformSvg(
+  'translate(350, 50) rotate(8) scale(1.1)',
+  'translate(320, -20) rotate(6) scale(2)'
+);
+
+export const BgTopRight = ({
+  scrolledRatioSpring,
+}: {
+  scrolledRatioSpring: SpringValue<number>;
+}) => {
   return (
-    <g id="bg_right" transform="translate(350, 50) rotate(8) scale(1.1)">
+    <animated.g
+      id="bg_right"
+      transform={scrolledRatioSpring.to((val) => {
+        return INTERPOLATOR(val);
+      })}
+    >
       <path
         id="Weird Shape"
         fillRule="evenodd"
@@ -25,6 +42,6 @@ export const BgTopRight = () => {
         fill="#FF73C6"
         fillOpacity="0.7"
       />
-    </g>
+    </animated.g>
   );
 };

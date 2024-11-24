@@ -23,14 +23,14 @@ export const BackgroundGraphics = ({ scrolledRatioSpring }: BackgroundGraphicsPr
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <BgTopRight />
-      <BgTopYellow />
-      <BgOrange />
-      <BgPurple />
+      <BgTopRight scrolledRatioSpring={scrolledRatioSpring} />
+      <BgTopYellow scrolledRatioSpring={scrolledRatioSpring} />
+      <BgOrange scrolledRatioSpring={scrolledRatioSpring} />
+      <BgPurple scrolledRatioSpring={scrolledRatioSpring} />
       <LeftMan scrolledRatioSpring={scrolledRatioSpring} />
-      <RightMan />
-      <LeftWoman />
-      <RightWoman />
+      <RightMan scrolledRatioSpring={scrolledRatioSpring} />
+      <LeftWoman scrolledRatioSpring={scrolledRatioSpring} />
+      <RightWoman scrolledRatioSpring={scrolledRatioSpring} />
     </svg>
   );
 };
