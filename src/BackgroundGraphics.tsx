@@ -15,22 +15,24 @@ interface BackgroundGraphicsProps {
 
 export const BackgroundGraphics = ({ scrolledRatioSpring }: BackgroundGraphicsProps) => {
   return (
-    <svg
-      width="1234"
-      height="832"
-      className="fill-box h-full w-full object-cover"
-      viewBox="0 0 1234 832"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <BgTopRight scrolledRatioSpring={scrolledRatioSpring} />
-      <BgTopYellow scrolledRatioSpring={scrolledRatioSpring} />
-      <BgOrange scrolledRatioSpring={scrolledRatioSpring} />
-      <BgPurple scrolledRatioSpring={scrolledRatioSpring} />
-      <LeftMan scrolledRatioSpring={scrolledRatioSpring} />
-      <RightMan scrolledRatioSpring={scrolledRatioSpring} />
-      <LeftWoman scrolledRatioSpring={scrolledRatioSpring} />
-      <RightWoman scrolledRatioSpring={scrolledRatioSpring} />
-    </svg>
+    <div className="h-full w-full drop-shadow-2xl">
+      <svg
+        width="1234"
+        height="832"
+        className="fill-box w-full object-cover md:h-full"
+        viewBox="0 0 1234 832"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <BgTopRight scrolledRatioSpring={scrolledRatioSpring} />
+        <BgTopYellow scrolledRatioSpring={scrolledRatioSpring} />
+        <BgOrange scrolledRatioSpring={scrolledRatioSpring} />
+        <BgPurple scrolledRatioSpring={scrolledRatioSpring} />
+        <LeftMan scrolledRatioSpring={scrolledRatioSpring} />
+        <RightMan scrolledRatioSpring={scrolledRatioSpring} />
+        <LeftWoman scrolledRatioSpring={scrolledRatioSpring} />
+        <RightWoman scrolledRatioSpring={scrolledRatioSpring} />
+      </svg>
+    </div>
   );
 };
