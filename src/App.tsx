@@ -17,7 +17,7 @@ export default function App() {
         overlay={
           <>
             <div className="relative h-[250vh]">
-              <div className="absolute right-5 top-[50vh] max-w-xl p-3 text-left">
+              <div className="absolute right-5 top-[50vh] max-w-xl p-4 text-left">
                 <h1 className="red-hat-display-black text-6xl text-blue-500 md:text-9xl">
                   Join the Pride
                 </h1>
@@ -25,12 +25,14 @@ export default function App() {
                   Join us in celebrating love, diversity, and equality at this year&#39;s Pride
                   event
                 </p>
-                <h2 className="red-hat-display-black mt-96 text-5xl text-slate-500 md:text-8xl">
-                  Oct. 24
-                </h2>
-                <p className="red-hat-display-black mt-6 font-sans text-3xl text-blue-500 md:text-5xl">
-                  Taipei
-                </p>
+                <div className="mt-64">
+                  <h2 className="red-hat-display-black pt-96 text-5xl text-slate-500 md:text-8xl">
+                    Oct. 24
+                  </h2>
+                  <p className="red-hat-display-black mt-6 font-sans text-3xl text-blue-500 md:text-5xl">
+                    Taipei
+                  </p>
+                </div>
               </div>
             </div>
           </>

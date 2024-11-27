@@ -19,7 +19,7 @@ export const BackgroundGraphics = ({ scrolledRatioSpring }: BackgroundGraphicsPr
       <svg
         width="1234"
         height="832"
-        className="fill-box w-full object-cover md:h-full"
+        className="fill-box h-1/2 w-full object-cover md:h-full"
         viewBox="0 0 1234 832"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
