@@ -1,38 +1,20 @@
 import { SpringValue } from '@react-spring/web';
 
-import { BgOrange } from './illustrations/BgOrange';
-import { BgPurple } from './illustrations/BgPurple';
-import { BgTopRight } from './illustrations/BgTopRight';
-import { BgTopYellow } from './illustrations/BgTopYellow';
-import { LeftMan } from './illustrations/LeftMan';
-import { LeftWoman } from './illustrations/LeftWoman';
-import { RightMan } from './illustrations/RightMan';
-import { RightWoman } from './illustrations/RightWoman';
-
 interface BackgroundGraphicsProps {
   scrolledRatioSpring: SpringValue<number>;
 }
 
 export const BackgroundGraphics = ({ scrolledRatioSpring }: BackgroundGraphicsProps) => {
   return (
-    <div className="h-full w-full drop-shadow-2xl">
-      <svg
-        width="1234"
-        height="832"
-        className="fill-box h-1/2 w-full object-cover md:h-full"
-        viewBox="0 0 1234 832"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <BgTopRight scrolledRatioSpring={scrolledRatioSpring} />
-        <BgTopYellow scrolledRatioSpring={scrolledRatioSpring} />
-        <BgOrange scrolledRatioSpring={scrolledRatioSpring} />
-        <BgPurple scrolledRatioSpring={scrolledRatioSpring} />
-        <LeftMan scrolledRatioSpring={scrolledRatioSpring} />
-        <RightMan scrolledRatioSpring={scrolledRatioSpring} />
-        <LeftWoman scrolledRatioSpring={scrolledRatioSpring} />
-        <RightWoman scrolledRatioSpring={scrolledRatioSpring} />
-      </svg>
+    <div className="h-full w-full">
+      <div className="flex h-full w-full items-center justify-center lg:w-1/2">
+        <div className="relative flex h-[820px] w-[500px] justify-center overflow-hidden rounded-2xl border-8 border-slate-600 drop-shadow-2xl">
+          <span className="absolute left-1/2 top-5 h-3 w-3 -translate-x-1/2 -translate-y-1/2 transform rounded-full border border-slate-600 bg-slate-600"></span>
+          <span className="absolute -right-3 top-20 h-10 rounded-md border-4 border-slate-600"></span>
+          <span className="absolute -right-3 top-44 h-24 rounded-md border-4 border-slate-600"></span>
+          <div className="h-full w-full bg-amber-200">{/*  Mobile phone content   */}</div>
+        </div>
+      </div>
     </div>
   );
 };
