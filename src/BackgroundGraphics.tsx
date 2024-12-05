@@ -1,19 +1,54 @@
 import { SpringValue } from '@react-spring/web';
 
+import { PhoneWrapper } from './components/PhoneWrapper';
+
 interface BackgroundGraphicsProps {
   scrolledRatioSpring: SpringValue<number>;
 }
 
 export const BackgroundGraphics = ({ scrolledRatioSpring }: BackgroundGraphicsProps) => {
   return (
-    <div className="h-full w-full">
-      <div className="flex h-full w-full items-center justify-center lg:w-1/2">
-        <div className="relative flex h-[820px] w-[500px] justify-center overflow-hidden rounded-2xl border-8 border-slate-600 drop-shadow-2xl">
-          <span className="absolute left-1/2 top-5 h-3 w-3 -translate-x-1/2 -translate-y-1/2 transform rounded-full border border-slate-600 bg-slate-600"></span>
-          <span className="absolute -right-3 top-20 h-10 rounded-md border-4 border-slate-600"></span>
-          <span className="absolute -right-3 top-44 h-24 rounded-md border-4 border-slate-600"></span>
-          <div className="h-full w-full bg-amber-200">{/*  Mobile phone content   */}</div>
+    <PhoneWrapper>
+      {/*  Mobile phone content   */}
+      <PhoneContent />
+    </PhoneWrapper>
+  );
+};
+
+export const PhoneContent = () => {
+  return (
+    <div className="w-full px-4 py-10">
+      <div className="chat chat-start">
+        <div className="avatar chat-image">
+          <div className="w-10 rounded-full">
+            <img
+              alt="Tailwind CSS chat bubble component"
+              src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+            />
+          </div>
         </div>
+        <div className="chat-header">
+          Obi-Wan Kenobi
+          <time className="text-xs opacity-50">12:45</time>
+        </div>
+        <div className="chat-bubble">You were the Chosen One!</div>
+        <div className="chat-footer opacity-50">Delivered</div>
+      </div>
+      <div className="chat chat-end">
+        <div className="avatar chat-image">
+          <div className="w-10 rounded-full">
+            <img
+              alt="Tailwind CSS chat bubble component"
+              src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+            />
+          </div>
+        </div>
+        <div className="chat-header">
+          Anakin
+          <time className="text-xs opacity-50">12:46</time>
+        </div>
+        <div className="chat-bubble">From Daisy UI!</div>
+        <div className="chat-footer opacity-50">Seen at 12:46</div>
       </div>
     </div>
   );
