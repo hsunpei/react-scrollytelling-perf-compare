@@ -6,7 +6,7 @@ export const PhoneWrapper = ({ children }: { children: React.ReactNode }) => {
           <span className="absolute left-1/2 top-5 h-3 w-3 -translate-x-1/2 -translate-y-1/2 transform rounded-full border border-slate-600 bg-slate-600"></span>
           <span className="absolute -right-3 top-20 h-10 rounded-md border-4 border-slate-600"></span>
           <span className="absolute -right-3 top-44 h-24 rounded-md border-4 border-slate-600"></span>
-          <div className="h-full w-full bg-amber-200">{children}</div>
+          <div className="h-full w-full">{children}</div>
         </div>
       </div>
     </div>
