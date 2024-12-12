@@ -1,11 +1,13 @@
+import { forwardRef } from 'react';
+
 interface LucasChatProps {
   time: string;
   message: string;
 }
 
-export const LucasChat = ({ time, message }: LucasChatProps) => {
+export const LucasChat = forwardRef<HTMLDivElement, LucasChatProps>(({ time, message }, ref) => {
   return (
-    <div className="chat chat-end">
+    <div ref={ref} className="chat chat-end">
       <div className="avatar chat-image">
         <div className="w-10 rounded-full bg-emerald-300">
           <img alt="Tailwind CSS chat bubble component" src="/images/avatar_54.png" />
@@ -18,4 +20,4 @@ export const LucasChat = ({ time, message }: LucasChatProps) => {
       <div className="chat-bubble chat-bubble-primary">{message}</div>
     </div>
   );
-};
+});

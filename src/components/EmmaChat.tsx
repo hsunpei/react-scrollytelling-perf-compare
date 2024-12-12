@@ -1,11 +1,13 @@
+import { forwardRef } from 'react';
+
 interface EmmaChatProps {
   time: string;
   message: string;
 }
 
-export const EmmaChat = ({ time, message }: EmmaChatProps) => {
+export const EmmaChat = forwardRef<HTMLDivElement, EmmaChatProps>(({ time, message }, ref) => {
   return (
-    <div className="chat chat-start mb-2">
+    <div ref={ref} className="chat chat-start mb-2">
       <div className="avatar chat-image">
         <div className="w-10 rounded-full bg-blue-600">
           <img alt="Tailwind CSS chat bubble component" src="/images/avatar_51.png" />
@@ -18,4 +20,4 @@ export const EmmaChat = ({ time, message }: EmmaChatProps) => {
       <div className="chat-bubble">{message}</div>
     </div>
   );
-};
+});
