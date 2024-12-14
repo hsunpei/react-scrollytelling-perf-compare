@@ -6,6 +6,7 @@ import { StickyContainerTailwind } from '@react-scrollytelling/layout';
 import { useSectionScrollSpring } from '@react-scrollytelling/react-spring';
 
 import { BackgroundGraphics } from './BackgroundGraphics';
+import { SectionDescription } from './components/SectionDescription';
 
 export default function App() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -30,14 +31,21 @@ export default function App() {
                     </p>
                   </div>
                 </div>
-                <div className="mt-64">
-                  <h2 className="red-hat-display-black pt-96 text-5xl text-slate-500 md:text-8xl">
-                    Oct. 24
-                  </h2>
-                  <p className="red-hat-display-black mt-6 font-sans text-3xl text-blue-500 md:text-5xl">
-                    Taipei
+                <div className="pb-[50vh]"></div>
+                <SectionDescription>
+                  <p className="mt-6 text-lg">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae orci a
+                    augue vehicula pretium vel vel metus. Suspendisse tincidunt leo tincidunt
+                    fermentum gravida.
                   </p>
-                </div>
+                </SectionDescription>
+                <SectionDescription>
+                  <p className="mt-6 text-lg">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae orci a
+                    augue vehicula pretium vel vel metus. Suspendisse tincidunt leo tincidunt
+                    fermentum gravida.
+                  </p>
+                </SectionDescription>
               </div>
             </div>
           </div>
