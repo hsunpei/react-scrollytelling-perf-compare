@@ -16,7 +16,7 @@ export const SvgMask = ({ width, height }: SvgMaskProps) => {
         <mask id="hole">
           <rect width="100%" height="100%" fill="white" fillOpacity="0.5" />
           {/* The hole  */}
-          <polygon points="20,20 20,180 180,100 " fill="black" />
+          <polygon points="20,20 20,180 180,100" fill="black" />
         </mask>
       </defs>
       {/* Masked background */}
