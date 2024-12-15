@@ -1,9 +1,15 @@
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 
 import { EmmaChat } from './EmmaChat';
 import { LucasChat } from './LucasChat';
+import { SvgMask } from './SvgMask';
+import { useResizeObserver } from '../hooks/useResizeObserver';
 
 export const PhoneContent = () => {
+  const {
+    ref: outerRef,
+    dimensions: { width, height },
+  } = useResizeObserver();
   const chatBoxRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const scene2Ref = useRef<HTMLDivElement>(null);
@@ -11,7 +17,7 @@ export const PhoneContent = () => {
   // TODO: y = (height of the container - height of the container of scene2Ref)
 
   return (
-    <div className="h-full w-full bg-gray-200 px-4 py-10">
+    <div ref={outerRef} className="relative h-full w-full bg-gray-200 px-4 py-10">
       <div ref={chatBoxRef} className="relative h-full w-full overflow-hidden">
         <div
           className="absolute left-0 top-0 h-full w-full"
@@ -31,6 +37,7 @@ export const PhoneContent = () => {
           </div>
         </div>
       </div>
+      <SvgMask width={width} height={height} />
     </div>
   );
 };
