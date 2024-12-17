@@ -1,5 +1,3 @@
-import { useRef } from 'react';
-
 import { EmmaChat } from './EmmaChat';
 import { LucasChat } from './LucasChat';
 import { SvgMask } from './SvgMask';
@@ -14,17 +12,12 @@ export const PhoneContent = () => {
     ref: chatBoxRef,
     dimensions: { height: chatBoxHeight },
   } = useResizeObserver();
-  const scene2Ref = useRef<HTMLDivElement>(null);
+  const { ref: scene2Ref, dimensions: scene2Dimensions } = useResizeObserver();
 
   // TODO: y = (height of the container - height of the container of scene2Ref)
 
   console.log({
-    scene2Ref: scene2Ref.current?.getBoundingClientRect(),
-    chatBoxRef: chatBoxRef.current?.getBoundingClientRect(),
-    v1: chatBoxRef.current?.getBoundingClientRect().height,
-    v2:
-      scene2Ref.current?.getBoundingClientRect().bottom -
-      chatBoxRef.current?.getBoundingClientRect().y,
+    scene2Dimensions,
   });
 
   return (
@@ -50,7 +43,20 @@ export const PhoneContent = () => {
             <EmmaChat time="9:30" message="quis nostrud exercitation" />
             <LucasChat time="9:32" message="ullamco laboris nisi " />
             <div style={{ height: chatBoxHeight }}></div>
-            <SvgMask width={width} height={height} />
+            <SvgMask
+              outerWidth={width}
+              outerHeight={height}
+              focusArea={{
+                x:
+                  scene2Ref.current?.getBoundingClientRect().left -
+                    contentRef.current?.getBoundingClientRect().left || 0,
+                y:
+                  scene2Ref.current?.getBoundingClientRect().top -
+                    contentRef.current?.getBoundingClientRect().top || 0,
+                width: scene2Ref.current?.getBoundingClientRect().width || 0,
+                height: scene2Ref.current?.getBoundingClientRect().height || 0,
+              }}
+            />
           </div>
         </div>
       </div>
