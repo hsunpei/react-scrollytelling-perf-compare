@@ -1,24 +1,53 @@
+import { useRef, useCallback, useLayoutEffect, useState } from 'react';
+
 import { EmmaChat } from './EmmaChat';
 import { LucasChat } from './LucasChat';
-import { SvgMask } from './SvgMask';
+import { SvgSpotlight } from './SvgSpotlight';
 import { useResizeObserver } from '../hooks/useResizeObserver';
 
 export const PhoneContent = () => {
   const {
     ref: contentRef,
-    dimensions: { width, height },
+    dimensions: { width: contentWidth, height: contentHeight },
   } = useResizeObserver();
   const {
     ref: chatBoxRef,
     dimensions: { height: chatBoxHeight },
   } = useResizeObserver();
-  const { ref: scene2Ref, dimensions: scene2Dimensions } = useResizeObserver();
+  const scene2Ref = useRef<HTMLDivElement>(null);
 
-  // TODO: y = (height of the container - height of the container of scene2Ref)
+  const [focusArea, setFocusArea] = useState<{
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+  }>({ x: 0, y: 0, width: 0, height: 0 });
 
-  console.log({
-    scene2Dimensions,
-  });
+  const updateSpotlightArea = useCallback(
+    (highlightedElement: React.RefObject<HTMLDivElement>) => {
+      if (!contentRef.current || !highlightedElement.current) {
+        return;
+      }
+
+      const highlightedRect = highlightedElement.current.getBoundingClientRect();
+      const contentRect = contentRef.current.getBoundingClientRect();
+
+      const focus = {
+        x: highlightedRect.left - contentRect.left || 0,
+        y: highlightedRect.top - contentRect.top || 0,
+        width: highlightedRect.width || 0,
+        height: highlightedRect.height || 0,
+      };
+      setFocusArea(focus);
+    },
+    [contentRef]
+  );
+
+  useLayoutEffect(() => {
+    if (contentWidth && contentHeight) {
+      updateSpotlightArea(scene2Ref);
+    }
+  }, [scene2Ref, updateSpotlightArea, contentWidth, contentHeight]);
 
   return (
     <div className="relative h-full w-full bg-gray-200">
@@ -33,7 +62,7 @@ export const PhoneContent = () => {
             }px)`,
           }}
         >
-          <div ref={contentRef} className="relative w-full px-4 py-10">
+          <div ref={contentRef} className="relative w-full px-2 py-10">
             <div style={{ height: chatBoxHeight }}></div>
             <EmmaChat time="9:30" message="Lorem ipsum dolor sit amet" />
             <LucasChat time="9:32" message="consectetur adipiscing elit" />
@@ -43,19 +72,10 @@ export const PhoneContent = () => {
             <EmmaChat time="9:30" message="quis nostrud exercitation" />
             <LucasChat time="9:32" message="ullamco laboris nisi " />
             <div style={{ height: chatBoxHeight }}></div>
-            <SvgMask
-              outerWidth={width}
-              outerHeight={height}
-              focusArea={{
-                x:
-                  scene2Ref.current?.getBoundingClientRect().left -
-                    contentRef.current?.getBoundingClientRect().left || 0,
-                y:
-                  scene2Ref.current?.getBoundingClientRect().top -
-                    contentRef.current?.getBoundingClientRect().top || 0,
-                width: scene2Ref.current?.getBoundingClientRect().width || 0,
-                height: scene2Ref.current?.getBoundingClientRect().height || 0,
-              }}
+            <SvgSpotlight
+              outerWidth={contentWidth}
+              outerHeight={contentHeight}
+              focusArea={focusArea}
             />
           </div>
         </div>

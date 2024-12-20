@@ -1,4 +1,4 @@
-interface SvgMaskProps {
+interface SvgSpotlight {
   outerWidth: number;
   outerHeight: number;
   focusArea: {
@@ -11,7 +11,7 @@ interface SvgMaskProps {
   };
 }
 
-export const SvgMask = ({ outerWidth, outerHeight, focusArea }: SvgMaskProps) => {
+export const SvgSpotlight = ({ outerWidth, outerHeight, focusArea }: SvgSpotlight) => {
   return (
     <svg
       width={outerWidth}
@@ -23,7 +23,7 @@ export const SvgMask = ({ outerWidth, outerHeight, focusArea }: SvgMaskProps) =>
       <defs>
         <mask id="focus-hole">
           <rect width="100%" height="100%" fill="white" fillOpacity="0.5" />
-          {/* The hole  */}
+          {/* The hole - spotlight area */}
           <rect
             x={focusArea.x}
             y={focusArea.y}
