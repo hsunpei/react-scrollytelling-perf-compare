@@ -23,6 +23,8 @@ export const PhoneContent = () => {
     height: number;
   }>({ x: 0, y: 0, width: 0, height: 0 });
 
+  const [scrollY, setScrollY] = useState(0);
+
   const updateSpotlightArea = useCallback(
     (highlightedElement: React.RefObject<HTMLDivElement>) => {
       if (!contentRef.current || !highlightedElement.current) {
@@ -43,11 +45,26 @@ export const PhoneContent = () => {
     [contentRef]
   );
 
+  const updateScrollY = useCallback(
+    (highlightedElement: React.RefObject<HTMLDivElement>) => {
+      if (!contentRef.current || !highlightedElement.current || !chatBoxRef.current) {
+        return;
+      }
+      const sy =
+        chatBoxRef.current.getBoundingClientRect().height +
+        contentRef.current.getBoundingClientRect().top -
+        highlightedElement.current.getBoundingClientRect().bottom;
+      setScrollY(sy);
+    },
+    [chatBoxRef, contentRef]
+  );
+
   useLayoutEffect(() => {
     if (contentWidth && contentHeight) {
+      updateScrollY(scene2Ref);
       updateSpotlightArea(scene2Ref);
     }
-  }, [scene2Ref, updateSpotlightArea, contentWidth, contentHeight]);
+  }, [scene2Ref, updateSpotlightArea, contentWidth, contentHeight, updateScrollY]);
 
   return (
     <div className="relative h-full w-full bg-gray-200">
@@ -55,11 +72,7 @@ export const PhoneContent = () => {
         <div
           className="w-full"
           style={{
-            transform: `translate(0, ${
-              chatBoxRef.current?.getBoundingClientRect().height +
-              contentRef.current?.getBoundingClientRect().top -
-              scene2Ref.current?.getBoundingClientRect().bottom
-            }px)`,
+            transform: `translate(0, ${scrollY}px)`,
           }}
         >
           <div ref={contentRef} className="relative w-full px-2 py-10">
