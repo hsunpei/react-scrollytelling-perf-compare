@@ -80,10 +80,10 @@ export const PhoneContent = () => {
             <EmmaChat time="9:30" message="Lorem ipsum dolor sit amet" />
             <LucasChat time="9:32" message="consectetur adipiscing elit" />
             <EmmaChat ref={scene2Ref} time="9:30" message="sed do eiusmod tempor" />
-            <LucasChat time="9:32" message="labore et dolore magna aliqua" />
-            <LucasChat time="9:32" message="Ut enim ad minim veniam" />
-            <EmmaChat time="9:30" message="quis nostrud exercitation" />
-            <LucasChat time="9:32" message="ullamco laboris nisi " />
+            <LucasChat time="9:33" message="labore et dolore magna aliqua" />
+            <LucasChat time="9:35" message="Ut enim ad minim veniam" />
+            <EmmaChat time="9:38" message="quis nostrud exercitation" />
+            <LucasChat time="9:40" message="ullamco laboris nisi " />
             <div style={{ height: chatBoxHeight }}></div>
             <SvgSpotlight
               outerWidth={contentWidth}

@@ -22,12 +22,12 @@ export default function App() {
               <div className="w-full lg:w-1/2">
                 <div className="relative h-screen w-full">
                   <div className="absolute bottom-10 w-full">
-                    <h1 className="red-hat-display-black text-6xl text-blue-500 md:text-9xl">
-                      Join the Pride
+                    <h1 className="red-hat-display-black text-5xl text-blue-500 md:text-7xl">
+                      Exposed: The Secret Chats
                     </h1>
-                    <p className="mt-6 font-sans text-xl font-medium text-slate-500 md:text-2xl">
-                      Join us in celebrating love, diversity, and equality at this year&#39;s Pride
-                      event
+                    <p className="mt-6 font-sans text-lg font-medium text-slate-500 md:text-xl">
+                      A gripping look at the encrypted conversations that unraveled one of the most
+                      shocking financial scandals in modern history
                     </p>
                   </div>
                 </div>
