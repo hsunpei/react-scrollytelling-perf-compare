@@ -1,11 +1,16 @@
 import { useRef, useCallback, useLayoutEffect, useState } from 'react';
 
+import { useActiveSectionSpring } from '@react-scrollytelling/react-spring';
+
 import { EmmaChat } from './EmmaChat';
 import { LucasChat } from './LucasChat';
 import { SvgSpotlight } from './SvgSpotlight';
 import { useResizeObserver } from '../hooks/useResizeObserver';
 
 export const PhoneContent = () => {
+  const { trackingId, scrolledRatioSpring } = useActiveSectionSpring();
+  const curSection = parseInt((trackingId || '-0')?.split('-')[1], 10) || 0;
+
   const {
     ref: contentRef,
     dimensions: { width: contentWidth, height: contentHeight },
@@ -14,7 +19,11 @@ export const PhoneContent = () => {
     ref: chatBoxRef,
     dimensions: { height: chatBoxHeight },
   } = useResizeObserver();
+  const scene1Ref = useRef<HTMLDivElement>(null);
   const scene2Ref = useRef<HTMLDivElement>(null);
+  const scene3Ref = useRef<HTMLDivElement>(null);
+  const scene4Ref = useRef<HTMLDivElement>(null);
+  const scene5Ref = useRef<HTMLDivElement>(null);
 
   const [focusArea, setFocusArea] = useState<{
     x: number;
@@ -60,11 +69,23 @@ export const PhoneContent = () => {
   );
 
   useLayoutEffect(() => {
-    if (contentWidth && contentHeight) {
-      updateScrollY(scene2Ref);
-      updateSpotlightArea(scene2Ref);
+    if (contentWidth && contentHeight && curSection > 0) {
+      const refsBySection = {
+        1: scene1Ref,
+        2: scene2Ref,
+        3: scene3Ref,
+        4: scene4Ref,
+        5: scene5Ref,
+      };
+
+      const highlightedRef = refsBySection[curSection];
+
+      console.log('curSection', curSection, highlightedRef);
+
+      updateScrollY(highlightedRef);
+      updateSpotlightArea(highlightedRef);
     }
-  }, [scene2Ref, updateSpotlightArea, contentWidth, contentHeight, updateScrollY]);
+  }, [scene2Ref, updateSpotlightArea, contentWidth, contentHeight, updateScrollY, curSection]);
 
   return (
     <div className="relative h-full w-full bg-gray-200">
@@ -77,13 +98,38 @@ export const PhoneContent = () => {
         >
           <div ref={contentRef} className="relative w-full px-2 py-10">
             <div style={{ height: chatBoxHeight }}></div>
-            <EmmaChat time="9:30" message="Lorem ipsum dolor sit amet" />
-            <LucasChat time="9:32" message="consectetur adipiscing elit" />
-            <EmmaChat ref={scene2Ref} time="9:30" message="sed do eiusmod tempor" />
-            <LucasChat time="9:33" message="labore et dolore magna aliqua" />
-            <LucasChat time="9:35" message="Ut enim ad minim veniam" />
-            <EmmaChat time="9:38" message="quis nostrud exercitation" />
-            <LucasChat time="9:40" message="ullamco laboris nisi " />
+            <EmmaChat
+              ref={scene1Ref}
+              time="9:30"
+              message="Lorem ipsum dolor sit amet"
+              show={curSection >= 1}
+            />
+            <LucasChat time="9:32" message="consectetur adipiscing elit" show={curSection >= 1} />
+            <EmmaChat
+              ref={scene2Ref}
+              time="9:30"
+              message="sed do eiusmod tempor"
+              show={curSection >= 2}
+            />
+            <LucasChat
+              ref={scene3Ref}
+              time="9:33"
+              message="labore et dolore magna aliqua"
+              show={curSection >= 3}
+            />
+            <LucasChat time="9:35" message="Ut enim ad minim veniam" show={curSection >= 3} />
+            <EmmaChat
+              ref={scene4Ref}
+              time="9:38"
+              message="quis nostrud exercitation"
+              show={curSection >= 4}
+            />
+            <LucasChat
+              ref={scene5Ref}
+              time="9:40"
+              message="ullamco laboris nisi"
+              show={curSection >= 5}
+            />
             <div style={{ height: chatBoxHeight }}></div>
             <SvgSpotlight
               outerWidth={contentWidth}
