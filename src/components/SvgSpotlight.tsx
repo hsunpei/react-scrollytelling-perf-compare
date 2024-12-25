@@ -3,6 +3,7 @@ import { useSpring, animated } from '@react-spring/web';
 interface SvgSpotlight {
   outerWidth: number;
   outerHeight: number;
+  bgColor: string;
   focusArea: {
     x: number;
     y: number;
@@ -13,7 +14,7 @@ interface SvgSpotlight {
   };
 }
 
-export const SvgSpotlight = ({ outerWidth, outerHeight, focusArea }: SvgSpotlight) => {
+export const SvgSpotlight = ({ outerWidth, outerHeight, focusArea, bgColor }: SvgSpotlight) => {
   const springProps = useSpring({
     x: focusArea.x,
     y: focusArea.y,
@@ -45,7 +46,7 @@ export const SvgSpotlight = ({ outerWidth, outerHeight, focusArea }: SvgSpotligh
         </mask>
       </defs>
       {/* Masked background */}
-      <rect fill="blue" width="100%" height="100%" mask="url(#focus-hole)" />
+      <rect fill={bgColor} width="100%" height="100%" mask="url(#focus-hole)" />
     </svg>
   );
 };

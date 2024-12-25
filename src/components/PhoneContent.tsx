@@ -7,6 +7,7 @@ import { EmmaChat } from './EmmaChat';
 import { LucasChat } from './LucasChat';
 import { SvgSpotlight } from './SvgSpotlight';
 import { useResizeObserver } from '../hooks/useResizeObserver';
+import { easeInOutQuad } from '../utils/easing';
 
 export const PhoneContent = () => {
   const { trackingId, scrolledRatioSpring } = useActiveSectionSpring();
@@ -64,9 +65,9 @@ export const PhoneContent = () => {
         chatBoxRef.current.getBoundingClientRect().height +
         contentRef.current.getBoundingClientRect().top -
         highlightedElement.current.getBoundingClientRect().bottom;
-      setScrollYSpring({ scrollY: sy });
+      void setScrollYSpring({ scrollY: sy });
     },
-    [chatBoxRef, contentRef]
+    [chatBoxRef, contentRef, setScrollYSpring]
   );
 
   useLayoutEffect(() => {
@@ -126,11 +127,27 @@ export const PhoneContent = () => {
               show={curSection >= 5}
             />
             <div style={{ height: chatBoxHeight }}></div>
-            <SvgSpotlight
-              outerWidth={contentWidth}
-              outerHeight={contentHeight}
-              focusArea={focusArea}
-            />
+            <animated.div
+              style={{
+                opacity:
+                  curSection === 2
+                    ? scrolledRatioSpring.to((r) => {
+                        return easeInOutQuad(Math.min(r * 3, 1));
+                      })
+                    : curSection < 2
+                      ? 0
+                      : 1,
+                width: '100%',
+                height: '100%',
+              }}
+            >
+              <SvgSpotlight
+                outerWidth={contentWidth}
+                outerHeight={contentHeight}
+                focusArea={focusArea}
+                bgColor="#092eff"
+              />
+            </animated.div>
           </div>
         </animated.div>
       </div>
