@@ -1,6 +1,7 @@
 import { useRef, useCallback, useLayoutEffect, useState } from 'react';
 
 import { useActiveSectionSpring } from '@react-scrollytelling/react-spring';
+import { animated, useSpring } from '@react-spring/web';
 
 import { EmmaChat } from './EmmaChat';
 import { LucasChat } from './LucasChat';
@@ -32,7 +33,7 @@ export const PhoneContent = () => {
     height: number;
   }>({ x: 0, y: 0, width: 0, height: 0 });
 
-  const [scrollY, setScrollY] = useState(0);
+  const [scrollYSpring, setScrollYSpring] = useSpring(() => ({ scrollY: 0 }));
 
   const updateSpotlightArea = useCallback(
     (highlightedElement: React.RefObject<HTMLDivElement>) => {
@@ -63,22 +64,16 @@ export const PhoneContent = () => {
         chatBoxRef.current.getBoundingClientRect().height +
         contentRef.current.getBoundingClientRect().top -
         highlightedElement.current.getBoundingClientRect().bottom;
-      setScrollY(sy);
+      setScrollYSpring({ scrollY: sy });
     },
     [chatBoxRef, contentRef]
   );
 
   useLayoutEffect(() => {
     if (contentWidth && contentHeight && curSection > 0) {
-      const refsBySection = {
-        1: scene1Ref,
-        2: scene2Ref,
-        3: scene3Ref,
-        4: scene4Ref,
-        5: scene5Ref,
-      };
+      const refsBySection = [scene1Ref, scene2Ref, scene3Ref, scene4Ref, scene5Ref];
 
-      const highlightedRef = refsBySection[curSection];
+      const highlightedRef = refsBySection[curSection - 1];
 
       console.log('curSection', curSection, highlightedRef);
 
@@ -90,10 +85,10 @@ export const PhoneContent = () => {
   return (
     <div className="relative h-full w-full bg-gray-200">
       <div ref={chatBoxRef} className="relative h-full w-full overflow-hidden">
-        <div
+        <animated.div
           className="w-full"
           style={{
-            transform: `translate(0, ${scrollY}px)`,
+            transform: scrollYSpring.scrollY.to((y) => `translate(0, ${y}px)`),
           }}
         >
           <div ref={contentRef} className="relative w-full px-2 py-10">
@@ -137,7 +132,7 @@ export const PhoneContent = () => {
               focusArea={focusArea}
             />
           </div>
-        </div>
+        </animated.div>
       </div>
     </div>
   );

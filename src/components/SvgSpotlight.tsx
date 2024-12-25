@@ -1,3 +1,5 @@
+import { useSpring, animated } from '@react-spring/web';
+
 interface SvgSpotlight {
   outerWidth: number;
   outerHeight: number;
@@ -12,6 +14,13 @@ interface SvgSpotlight {
 }
 
 export const SvgSpotlight = ({ outerWidth, outerHeight, focusArea }: SvgSpotlight) => {
+  const springProps = useSpring({
+    x: focusArea.x,
+    y: focusArea.y,
+    width: focusArea.width,
+    height: focusArea.height,
+  });
+
   return (
     <svg
       width={outerWidth}
@@ -24,11 +33,11 @@ export const SvgSpotlight = ({ outerWidth, outerHeight, focusArea }: SvgSpotligh
         <mask id="focus-hole">
           <rect width="100%" height="100%" fill="white" fillOpacity="0.5" />
           {/* The hole - spotlight area */}
-          <rect
-            x={focusArea.x}
-            y={focusArea.y}
-            width={focusArea.width}
-            height={focusArea.height}
+          <animated.rect
+            x={springProps.x}
+            y={springProps.y}
+            width={springProps.width}
+            height={springProps.height}
             rx={10}
             ry={10}
             fill="black"
