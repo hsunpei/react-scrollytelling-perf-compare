@@ -1,15 +1,13 @@
 import './styles.css';
 
-import { useRef } from 'react';
-
 import { ScrollytellingProvider } from '@react-scrollytelling/grouped';
 import { StickyContainerTailwind } from '@react-scrollytelling/layout';
-import { useSectionScrollSpring } from '@react-scrollytelling/react-spring';
 
 import { BackgroundGraphics } from './BackgroundGraphics';
 import { Section, SectionWithDescription } from './components/Section';
 
 const SECTION_IDS = {
+  PRE_OPENING: 'pre-opening',
   OPENING: 'opening-0',
   SEC_1: 'sec-1',
   SEC_2: 'sec-2',
@@ -19,11 +17,8 @@ const SECTION_IDS = {
 };
 
 export default function App() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const { scrolledRatioSpring } = useSectionScrollSpring(sectionRef);
-
   return (
-    <div className="App" ref={sectionRef}>
+    <div className="App">
       <ScrollytellingProvider>
         <StickyContainerTailwind
           overlay={
@@ -31,7 +26,7 @@ export default function App() {
               <div className="flex px-3">
                 <div className="lg:w-1/2">{/*  Leave the left empty */}</div>
                 <div className="w-full lg:w-1/2">
-                  <Section sectionID={SECTION_IDS.OPENING} className="pb-[50vh]">
+                  <Section sectionID={SECTION_IDS.PRE_OPENING}>
                     <div className="relative h-screen w-full">
                       <div className="absolute bottom-10 w-full">
                         <h1 className="red-hat-display-black text-5xl text-blue-500 md:text-7xl">
@@ -43,6 +38,9 @@ export default function App() {
                         </p>
                       </div>
                     </div>
+                  </Section>
+                  <Section sectionID={SECTION_IDS.OPENING} className="pb-[100vh]">
+                    {/* Blank section to run with the opening background effect */}
                   </Section>
                   <SectionWithDescription sectionID={SECTION_IDS.SEC_1}>
                     <p className="mt-6 text-lg">
@@ -85,7 +83,7 @@ export default function App() {
           }
         >
           {/* Put sticky background here */}
-          <BackgroundGraphics scrolledRatioSpring={scrolledRatioSpring} />
+          <BackgroundGraphics />
         </StickyContainerTailwind>
       </ScrollytellingProvider>
 

@@ -4,7 +4,7 @@ import { useTrackedSectionScroll } from '@react-scrollytelling/grouped';
 
 interface SectionProps {
   sectionID: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
 }
 
