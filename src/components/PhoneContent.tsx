@@ -76,8 +76,6 @@ export const PhoneContent = () => {
 
       const highlightedRef = refsBySection[curSection - 1];
 
-      console.log('curSection', curSection, highlightedRef);
-
       updateScrollY(highlightedRef);
       updateSpotlightArea(highlightedRef);
     }

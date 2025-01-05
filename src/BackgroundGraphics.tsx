@@ -61,7 +61,7 @@ export const BackgroundGraphics = () => {
 
   const phoneTransform = useMemo(() => {
     const initialScale = 0.8;
-    const initialY = 0.8;
+    const initialY = 0.85;
 
     switch (trackingId) {
       case backgroundSectionID:

@@ -2400,47 +2400,47 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-scrollytelling/core@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "@react-scrollytelling/core@npm:0.1.0"
+"@react-scrollytelling/core@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "@react-scrollytelling/core@npm:0.1.1"
   peerDependencies:
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: ec10c29e0f709b358b7774172dfc28c4c19716921d2aec6ce5194eed289556ce2350afc317fa65142ce7d7b5f31247f7908220401fc84c19b4411af43cee5d04
+  checksum: f4420b0e138ddd561fbe09d49d282e8b125256f3227663e04db5ad313955f3fd1b600d56dff9387c9c559855d8fd07471cefc72600ad930f1209accd75cf17cd
   languageName: node
   linkType: hard
 
-"@react-scrollytelling/grouped@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "@react-scrollytelling/grouped@npm:0.1.0"
+"@react-scrollytelling/grouped@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "@react-scrollytelling/grouped@npm:0.1.1"
   peerDependencies:
     "@react-scrollytelling/core": "workspace:^"
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: 7d6d7ffaf062cef53f7a9387dba9bc79ba518da79b1d36dc3242b1155a713f225d81014f2419d3e2d18fbf774227c80d923c3cf128e8fa9aa20eca7074766ab9
+  checksum: bd9b35dc67b512854f7a1c8cf309ba4b2e92c59497a36d6e1636b4e285324c27bea7bb34c55904d9f288089ccf9a0c7c0de3f4296315c1170bd122102f0a0186
   languageName: node
   linkType: hard
 
-"@react-scrollytelling/layout@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "@react-scrollytelling/layout@npm:0.1.0"
+"@react-scrollytelling/layout@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "@react-scrollytelling/layout@npm:0.1.1"
   peerDependencies:
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: c893459d57b2a0de4f9fa450a80cd1f9a166935baf70953a606589cbca6f91735f4b3815980f3de42a38b38daa769aa3a171a72af9686d4c7d9ad089a4205592
+  checksum: 30bbc49cc96eb210677f5f4cfe293a0e13b8082e50cc433e79660c7f8b67d55b79c775430639b1152680a6a1c7ea2805d900ab632834ebba54d4cc86ac68f7e6
   languageName: node
   linkType: hard
 
-"@react-scrollytelling/react-spring@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "@react-scrollytelling/react-spring@npm:0.1.0"
+"@react-scrollytelling/react-spring@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "@react-scrollytelling/react-spring@npm:0.1.1"
   peerDependencies:
     "@react-scrollytelling/core": "workspace:^"
     "@react-scrollytelling/grouped": "workspace:^"
     react: ^18.2.0
     react-dom: ^18.2.0
     react-spring: ^9.7.5
-  checksum: f00a314ba87d25bfddd2978253525962f7321fe74143b21bc18e709d231ad7f74b653de3664e4ff0701ab2cd67485c4091f9c32715809f353b890a25ec7c272e
+  checksum: 0e073c9c674d3419db448a3557111d5f06b6cec0b867cd79ddd2034f64f7a2a402c9a07398f20137155ce26783c9e44254caee7f2423d579243ad79c1a8da26c
   languageName: node
   linkType: hard
 
@@ -12483,10 +12483,10 @@ __metadata:
     "@hsunpei/eslint-config": ^0.1.3
     "@hsunpei/prettier-config": ^1.0.1
     "@hsunpei/typescript-config": ^1.0.7
-    "@react-scrollytelling/core": ^0.1.0
-    "@react-scrollytelling/grouped": ^0.1.0
-    "@react-scrollytelling/layout": ^0.1.0
-    "@react-scrollytelling/react-spring": ^0.1.0
+    "@react-scrollytelling/core": ^0.1.1
+    "@react-scrollytelling/grouped": ^0.1.1
+    "@react-scrollytelling/layout": ^0.1.1
+    "@react-scrollytelling/react-spring": ^0.1.1
     "@react-spring/web": ^9.7.5
     "@types/d3-interpolate": ^3.0.1
     "@types/react": ^18.3.12
