@@ -30,6 +30,19 @@ export const BackgroundGraphics = () => {
     }
   }, [trackingId]);
 
+  const avatarOpacity = useMemo(() => {
+    switch (trackingId) {
+      case backgroundSectionID:
+        return scrolledRatioSpring.to((r: number) => {
+          return easeInOutQuad(Math.max(1 - r / 3, 0));
+        });
+      case previewSectionID:
+        return `1`;
+      default:
+        return '0';
+    }
+  }, [trackingId]);
+
   const avatarVerticalPadding = useMemo(() => {
     const initialValue = 0.4;
 
@@ -74,6 +87,7 @@ export const BackgroundGraphics = () => {
             transform: avatarTransform,
             paddingTop: avatarVerticalPadding,
             paddingBottom: avatarVerticalPadding,
+            opacity: avatarOpacity,
           }}
         ></animated.div>
         <animated.div
@@ -83,6 +97,7 @@ export const BackgroundGraphics = () => {
             transform: avatarTransform,
             paddingTop: avatarVerticalPadding,
             paddingBottom: avatarVerticalPadding,
+            opacity: avatarOpacity,
           }}
         ></animated.div>
       </div>
