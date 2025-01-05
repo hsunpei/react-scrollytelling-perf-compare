@@ -92,15 +92,45 @@ export default function App() {
         </StickyContainerTailwind>
       </ScrollytellingProvider>
 
+      <div className="h-28 w-full bg-gradient-to-b from-indigo-700 to-slate-900"></div>
+      <div className="w-full bg-slate-900 text-slate-50">
+        <div className="mx-auto max-w-xl space-y-5 px-6 py-36">
+          <p className="text-left">
+            In iaculis porttitor justo, vitae dapibus magna vulputate fringilla. Etiam vel metus
+            eget libero ullamcorper semper nec vitae erat. Vestibulum consequat neque libero, sit
+            amet maximus elit auctor a. Proin a quam tellus. Morbi venenatis mauris tincidunt varius
+            iaculis. Phasellus vitae consectetur lectus, sed consectetur lectus. Sed lacinia ante et
+            pellentesque mollis. Quisque sit amet luctus nulla. Donec ac posuere est, id placerat
+            libero. Donec laoreet blandit justo, in dignissim nunc pretium id. Vivamus lacinia vel
+            velit ut rhoncus. Phasellus tempor lorem ut urna malesuada, sit amet ultricies tellus
+            mattis. Aliquam ultrices, nisl ut iaculis accumsan, leo justo molestie metus, sed
+            maximus dolor mi sit amet tortor. Nulla massa ligula, dictum a ante non, fringilla
+            cursus quam.
+          </p>
+          <p className="text-left">
+            Sed magna urna, sollicitudin id lacus eget, dapibus feugiat massa. Maecenas dapibus
+            imperdiet leo, sed placerat dolor iaculis sit amet. Suspendisse potenti. Duis elementum,
+            elit sit amet imperdiet porttitor, leo nunc rutrum libero, ut viverra mauris nisi eget
+            orci. Aenean id dui aliquam, varius arcu eget, venenatis ligula. Ut a tortor vulputate
+            velit rhoncus varius. Orci varius natoque penatibus et magnis dis parturient montes,
+            nascetur ridiculus mus. Proin eu dui nunc. Nunc dignissim nunc at nisi sagittis dapibus.
+            Nulla sem diam, cursus vitae sollicitudin ut, volutpat a orci. Pellentesque quis
+            suscipit massa, vel vehicula velit. Suspendisse finibus ut ante interdum pulvinar. Duis
+            quis bibendum purus, sed tempor lorem. Quisque sit amet purus auctor, cursus risus eget,
+            condimentum nisl.
+          </p>
+        </div>
+      </div>
+
       <div className="flex h-48 items-center justify-center bg-slate-200 text-slate-700">
         Illustrations - &nbsp;
         <a
-          href="https://www.humaaans.com/"
+          href="https://wannathis.one/products/online-3d-avatar-constructor#online-constructor"
           target="_blank"
           className="text-blue-600"
           rel="noreferrer"
         >
-          humaaans
+          Wannathis 3D Avatar Constructor
         </a>
       </div>
     </div>
