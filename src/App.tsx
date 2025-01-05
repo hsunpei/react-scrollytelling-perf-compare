@@ -29,10 +29,13 @@ export default function App() {
                   <Section sectionID={SECTION_IDS.PRE_OPENING}>
                     <div className="relative h-screen w-full">
                       <div className="absolute bottom-10 w-full">
-                        <h1 className="red-hat-display-black text-5xl text-blue-500 md:text-7xl">
-                          Exposed: The Secret Chats
+                        <h1 className="red-hat-display-black mb-4 text-left text-5xl font-extrabold text-blue-800 md:text-7xl">
+                          <mark className="rounded bg-white px-2 leading-tight text-blue-800">
+                            Exposed:
+                            <br /> The Secret Chats
+                          </mark>
                         </h1>
-                        <p className="mt-6 font-sans text-lg font-medium text-slate-500 md:text-xl">
+                        <p className="my-6 font-sans text-lg font-medium text-slate-200 md:text-xl">
                           A gripping look at the encrypted conversations that unraveled one of the
                           most shocking financial scandals in modern history
                         </p>
@@ -43,35 +46,35 @@ export default function App() {
                     {/* Blank section to run with the opening background effect */}
                   </Section>
                   <SectionWithDescription sectionID={SECTION_IDS.SEC_1}>
-                    <p className="mt-6 text-lg">
+                    <p className="text-lg">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae orci a
                       augue vehicula pretium vel vel metus. Suspendisse tincidunt leo tincidunt
                       fermentum gravida.
                     </p>
                   </SectionWithDescription>
                   <SectionWithDescription sectionID={SECTION_IDS.SEC_2}>
-                    <p className="mt-6 text-lg">
+                    <p className="text-lg">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae orci a
                       augue vehicula pretium vel vel metus. Suspendisse tincidunt leo tincidunt
                       fermentum gravida.
                     </p>
                   </SectionWithDescription>
                   <SectionWithDescription sectionID={SECTION_IDS.SEC_3}>
-                    <p className="mt-6 text-lg">
+                    <p className="text-lg">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae orci a
                       augue vehicula pretium vel vel metus. Suspendisse tincidunt leo tincidunt
                       fermentum gravida.
                     </p>
                   </SectionWithDescription>
                   <SectionWithDescription sectionID={SECTION_IDS.SEC_4}>
-                    <p className="mt-6 text-lg">
+                    <p className="text-lg">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae orci a
                       augue vehicula pretium vel vel metus. Suspendisse tincidunt leo tincidunt
                       fermentum gravida.
                     </p>
                   </SectionWithDescription>
                   <SectionWithDescription sectionID={SECTION_IDS.SEC_5}>
-                    <p className="mt-6 text-lg">
+                    <p className="text-lg">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae orci a
                       augue vehicula pretium vel vel metus. Suspendisse tincidunt leo tincidunt
                       fermentum gravida.
@@ -83,7 +86,9 @@ export default function App() {
           }
         >
           {/* Put sticky background here */}
-          <BackgroundGraphics />
+          <div className="h-screen w-full bg-gradient-to-b from-slate-800 to-indigo-700">
+            <BackgroundGraphics />
+          </div>
         </StickyContainerTailwind>
       </ScrollytellingProvider>
 
