@@ -2,6 +2,20 @@ import './styles.css';
 
 import { Route, Routes, NavLink, useLocation } from 'react-router-dom';
 import { IndividualListenersAndState } from './pages/IndividualListenersAndState';
+import { ReactScrollytellingAndReactSpring } from './pages/ReactScrollytellingAndReactSpring';
+
+const ROUTES = [
+  {
+    path: '/individual-listeners-state',
+    element: <IndividualListenersAndState />,
+    name: 'Individual scroll listeners + state updates',
+  },
+  {
+    path: '/react-scrollytelling-spring',
+    element: <ReactScrollytellingAndReactSpring />,
+    name: 'React Scrollytelling + React Spring',
+  },
+];
 
 export default function App() {
   const location = useLocation();
@@ -9,15 +23,22 @@ export default function App() {
   return (
     <div className="App min-h-screen bg-gray-100 p-4">
       <Routes>
-        <Route path="/individual-listeners-state" element={<IndividualListenersAndState />} />
+        {ROUTES.map((route, index) => (
+          <Route key={index} path={route.path} element={route.element} />
+        ))}
       </Routes>
       {location.pathname === '/' && (
-        <NavLink
-          to="/individual-listeners-state"
-          className="mt-4 inline-block rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-700"
-        >
-          Individual scroll listeners + state updates
-        </NavLink>
+        <div className="flex flex-col items-start space-y-4">
+          {ROUTES.map((route, index) => (
+            <NavLink
+              key={index}
+              to={route.path}
+              className="rounded bg-green-500 px-4 py-2 text-white hover:bg-green-700"
+            >
+              {route.name}
+            </NavLink>
+          ))}
+        </div>
       )}
     </div>
   );
