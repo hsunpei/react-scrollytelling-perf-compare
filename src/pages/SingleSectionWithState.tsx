@@ -3,11 +3,11 @@ import { SimpleSection } from '../components/single-section/SimpleSection';
 import { BackgroundInfo } from '../components/shared/BackgroundInfo';
 import { useRef } from 'react';
 
-import { useSectionScrollSpring } from '@react-scrollytelling/react-spring';
+import { useSectionScrollState } from '@react-scrollytelling/core';
 
-export const SingleSectionScrollytelling = () => {
+export const SingleSectionWithState = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const { scrolledRatioSpring } = useSectionScrollSpring(sectionRef);
+  const { scrolledRatio } = useSectionScrollState(sectionRef);
 
   return (
     <StickyContainerTailwind
@@ -24,9 +24,7 @@ export const SingleSectionScrollytelling = () => {
       {/* Background */}
       <BackgroundInfo
         trackingId={'GREEN'}
-        progress={scrolledRatioSpring.to((val) => {
-          return `${Math.round(val * 10000) / 100}%`;
-        })}
+        progress={`${Math.round(scrolledRatio * 10000) / 100}%`}
       />
     </StickyContainerTailwind>
   );
