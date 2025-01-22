@@ -1,13 +1,14 @@
-import { useRef } from 'react';
-
+import { forwardRef } from 'react';
 import { SectionBox } from '../shared/SectionBox';
 
 interface SimpleSectionProps {
   className: string;
 }
 
-export const SimpleSection = ({ className }: SimpleSectionProps) => {
-  const sectionRef = useRef<HTMLDivElement>(null);
+export const SimpleSection = forwardRef<HTMLDivElement, SimpleSectionProps>(
+  ({ className }, ref) => {
+    return <SectionBox ref={ref} className={className} />;
+  }
+);
 
-  return <SectionBox ref={sectionRef} className={className} />;
-};
+SimpleSection.displayName = 'SimpleSection';
