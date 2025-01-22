@@ -4,6 +4,7 @@ import { Route, Routes, NavLink, useLocation } from 'react-router-dom';
 import { SingleSectionWithState } from './pages/SingleSectionWithState';
 import { ReactScrollytellingAndReactSpring } from './pages/ReactScrollytellingAndReactSpring';
 import { SingleSectionScrollytelling } from './pages/SingleSectionScrollytelling';
+import { SingleSectionScrollyState } from './pages/SingleSectionScrollyState';
 
 const ROUTES = [
   {
@@ -12,9 +13,14 @@ const ROUTES = [
     name: 'Scroll listener + state (single section)',
   },
   {
-    path: '/single-section-scrollytelling',
+    path: '/single-section-scrollytelling-state',
+    element: <SingleSectionScrollyState />,
+    name: 'React Scrollytelling + state (single section)',
+  },
+  {
+    path: '/single-section-scrollytelling-spring',
     element: <SingleSectionScrollytelling />,
-    name: 'React Scrollytelling (single section)',
+    name: 'React Scrollytelling + React spring (single section)',
   },
   {
     path: '/react-scrollytelling-spring',
