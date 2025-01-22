@@ -3,12 +3,18 @@ import './styles.css';
 import { Route, Routes, NavLink, useLocation } from 'react-router-dom';
 import { IndividualListenersAndState } from './pages/IndividualListenersAndState';
 import { ReactScrollytellingAndReactSpring } from './pages/ReactScrollytellingAndReactSpring';
+import { SingleSectionScrollytelling } from './pages/SingleSectionScrollytelling';
 
 const ROUTES = [
   {
     path: '/individual-listeners-state',
     element: <IndividualListenersAndState />,
     name: 'Individual scroll listeners + state updates',
+  },
+  {
+    path: '/single-section-scrollytelling',
+    element: <SingleSectionScrollytelling />,
+    name: 'React Scrollytelling (single section)',
   },
   {
     path: '/react-scrollytelling-spring',

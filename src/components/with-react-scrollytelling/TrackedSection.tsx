@@ -13,5 +13,5 @@ export const TrackedSection = ({ className, sectionID }: TrackedSectionProps) =>
 
   useTrackedSectionScroll(sectionRef, sectionID);
 
-  return <SectionBox ref={sectionRef} className={className} sectionID={sectionID} />;
+  return <SectionBox ref={sectionRef} className={className} />;
 };
